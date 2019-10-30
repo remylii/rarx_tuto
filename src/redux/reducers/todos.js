@@ -11,7 +11,7 @@ export default function(state = initialState, action) {
       const { id, content } = action.payload;
       return {
         ...state,
-        allIds: { ...state.allIds, id },
+        allIds: [...state.allIds, id],
         byIds: {
           ...state.byIds,
           [id]: {
@@ -35,6 +35,6 @@ export default function(state = initialState, action) {
       };
     }
     default:
-      return false;
+      return state;
   }
 }
